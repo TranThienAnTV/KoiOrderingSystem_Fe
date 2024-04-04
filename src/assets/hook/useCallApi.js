@@ -46,7 +46,11 @@ const useCallApi = () => {
     }
   };
 
-  return { loading, error, data, callApi };
+  const resetError = () => {
+    setError(null);
+  };
+
+  return { loading, error, data, callApi, resetError };
 };
 
 export default useCallApi;

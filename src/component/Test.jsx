@@ -8,15 +8,18 @@ import {
 } from "../assets/hook/useGetTime";
 
 const Test = () => {
-  const { loading, error, data, callApi } = useCallApi();
+  const { loading, error, data, callApi, resetError } = useCallApi();
   const [requestData, setRequestData] = useState({});
 
   if (error) {
     alertFail(error);
+    resetError();
   }
 
+  console.log("lan 1 ");
+
   const handleGetData = () => {
-    callApi("GET", "/artworks");
+    callApi("GET", "/artworkssss");
   };
 
   const getDetail = () => {
@@ -34,7 +37,7 @@ const Test = () => {
     callApi("POST", "signup", requestData);
   };
 
-  console.log(data);
+  // console.log(data);
 
   // Xử lý dữ liệu, lỗi và tải trang tương ứng với trạng thái của hook
   if (loading) {
@@ -43,9 +46,10 @@ const Test = () => {
 
   return (
     <div>
-      {/* <button onClick={handleGetData}>Get Data</button>
+      <button onClick={handleGetData}>Get Data</button>
       <button onClick={getDetail}>Get Detail</button>
-      <button onClick={handlePostData}>Post Data</button> */}
+      <button onClick={handlePostData}>Post Data</button>
+      <button onClick={() => setRequestData({})}>Post Data</button>
       {/* {data &&
         data.map((item, index) => (
           <li key={index}>
@@ -53,9 +57,9 @@ const Test = () => {
             {item.description}
           </li>
         ))} */}
-      {/* <input type="file" onChange={(e) => console.log(e.target.value)} />
+      {/* {/* <input type="file" onChange={(e) => console.log(e.target.value)} /> */}
 
-      {data && data.description} */}
+      {data && data.description}
     </div>
   );
 };
