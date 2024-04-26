@@ -1,5 +1,7 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
-import Test from "../component/Test";
+// import Test from "../component/Test";
+import Zustand from "../Zustand";
+import UseReactQuerry from "../component/UseReactQuerry";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -33,8 +35,16 @@ import Test from "../component/Test";
 // };
 
 export const router = createBrowserRouter([
+  // {
+  //   path: "",
+  //   element: <Test />,
+  // },
   {
-    path: "",
-    element: <Test />,
+    path: "/zustand",
+    element: <Zustand />,
+  },
+  {
+    path: "/a",
+    element: <UseReactQuerry />,
   },
 ]);

@@ -6,24 +6,26 @@ import { PersistGate } from "redux-persist/integration/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { StateProvider } from "./Context/StateProvider";
-import useRealtime from "./assets/hook/useRealTime";
-
+import { QueryClient, QueryClientProvider } from "react-query";
 AOS.init({
   duration: 1000,
 });
 function App() {
-  useRealtime((data) => {
-    console.log(data);
-  });
+  // useRealtime((data) => {
+  //   console.log(data);
+  // });
+  const queryClient = new QueryClient();
   return (
     <>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <StateProvider>
-            <RouterProvider router={router} />
-          </StateProvider>
-        </PersistGate>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <StateProvider>
+              <RouterProvider router={router} />
+            </StateProvider>
+          </PersistGate>
+        </Provider>
+      </QueryClientProvider>
     </>
   );
 }
