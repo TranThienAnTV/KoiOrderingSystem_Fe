@@ -1,7 +1,5 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 // import Test from "../component/Test";
-import Zustand from "../Zustand";
-import UseReactQuerry from "../component/UseReactQuerry";
 import Test from "../page/Test";
 
 // const ProtectedRouteAuth = ({ children }) => {
