@@ -14,10 +14,9 @@ function App() {
   // useRealtime((data) => {
   //   console.log(data);
   // });
-  const queryClient = new QueryClient();
+
   return (
     <>
-      <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <StateProvider>
@@ -25,7 +24,7 @@ function App() {
             </StateProvider>
           </PersistGate>
         </Provider>
-      </QueryClientProvider>
+
     </>
   );
 }

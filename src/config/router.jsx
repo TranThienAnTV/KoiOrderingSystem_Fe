@@ -2,7 +2,7 @@ import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 // import Test from "../component/Test";
 import Zustand from "../Zustand";
 import UseReactQuerry from "../component/UseReactQuerry";
-import Test from "../Test";
+import Test from "../page/Test";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -39,13 +39,5 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Test />,
-  },
-  {
-    path: "/zustand",
-    element: <Zustand />,
-  },
-  {
-    path: "/a",
-    element: <UseReactQuerry />,
-  },
+  }
 ]);
