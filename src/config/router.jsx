@@ -1,6 +1,11 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
-// import Test from "../component/Test";
-import Test from "../page/Test";
+
+import LoginPage from "../page/login/LoginPage";
+import RegisterPage from "../page/register/RegisterPage";
+import HomePage from "../page/home/HomePage";
+import ErrorPage from "../page/error/ErrorPage";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -35,7 +40,31 @@ import Test from "../page/Test";
 
 export const router = createBrowserRouter([
   {
+    path: "*",
+    element: <ErrorPage />,
+  },
+  {
     path: "/",
-    element: <Test />,
+    element: (
+      <div>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+    ]
+  },
+  {
+    path:"/register",
+    element:<RegisterPage/>,
+  },
+  {
+    path:"/login",
+    element: <LoginPage/>,
   }
 ]);
