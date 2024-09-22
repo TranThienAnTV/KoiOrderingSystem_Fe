@@ -43,8 +43,8 @@ function Register() {
         <Col className='left-side' span={10}>
           <div className="theme-container">
             <div className="theme-panel">
-              <h1>Welcome Back!</h1>
-              <p>Enter your personal details to use all of site features</p>
+              <h1>Hello, Friend!</h1>
+              <p>Register with your personal details to use all of site features</p>
             </div>
           </div>
         </Col>
@@ -77,8 +77,6 @@ function Register() {
                 <Button htmlType='submit'>Sign Up</Button>
               </Form.Item>  */}
               <Button className='btn-container' htmlType='submit'>
-                {/* <img src={require('./google-logo.png')} alt="Google Logo" className="logo" /> */}
-                <img src="https://img.icons8.com/color/48/null/gmail-new.png" alt="" width='20px' />
                 Sign Up
               </Button>
             </Form>
@@ -87,7 +85,10 @@ function Register() {
             </p>
           </div>
           <div className='login-option'>
-            <Button onClick={handleLoginGoogle}>Sign in with Gmail</Button>
+            <Button onClick={handleLoginGoogle}>
+              <img src="https://img.icons8.com/color/48/null/gmail-new.png" alt="" width='20px' />
+              Sign in with Gmail
+            </Button>
           </div>
         </Col>
       </Row>

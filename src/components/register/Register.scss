@@ -25,11 +25,17 @@
 .left-side {
 
   .theme-container {
-    background-color: orange;
-    background: linear-gradient(to right, #c0b274, #af5c18);
     border-radius: 0 250px 200px 0;
     color: #fff;
     height: 100%;
+    background-image: url('src/image/register%20background.jpg');
+    /* Encoding spaces */
+    background-size: cover;
+    /* Make sure the image covers the entire div */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Ensures the image doesn't repeat */
   }
 
   .theme-panel {
@@ -41,11 +47,12 @@
     flex-direction: column;
     text-align: center;
     font-size: large;
-    margin-left: 120px;
+    margin-left: 150px;
   }
 }
 
 .right-side {
+  background: linear-gradient(to right, white, #eee, #d8b339, white);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -86,6 +93,10 @@
     button {
       background-color: #fff;
       border: 1px solid #B2B2B2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 5px;
       font-size: 15px;
       border-radius: 8px;
       padding: 0px 50px;
