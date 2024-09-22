@@ -1,7 +1,7 @@
-import React from 'react'
-import './Register.scss'
-import { Button, Col, Form, Input, Row } from 'antd'
-import { Link, useNavigate } from 'react-router-dom'
+import React from 'react';
+import './Register.scss';
+import { Button, Col, Form, Input, Row } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
 import { provider } from '../../config/firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 function Register() {
@@ -40,15 +40,18 @@ function Register() {
   return (
     <>
       <Row className='register'>
-        <Col className='right-side' span={8}>
-
-
-
+        <Col className='left-side' span={10}>
+          <div className="theme-container">
+            <div className="theme-panel">
+              <h1>Welcome Back!</h1>
+              <p>Enter your personal details to use all of site features</p>
+            </div>
+          </div>
         </Col>
-        <Col className='left-side' span={16}>
+        <Col className='right-side' span={14}>
           <div className="container" >
             <h1>Create Account</h1>
-            <Form onFinish={handleFinish} layout='vertical' className='form-register'> 
+            <Form onFinish={handleFinish} layout='vertical' className='form-register'>
               <Form.Item label="Full name" name="fullname">
                 <Input />
               </Form.Item>
@@ -70,15 +73,20 @@ function Register() {
               <Form.Item label="Password" name="password">
                 <Input.Password />
               </Form.Item>
-              <Form.Item className='btn-container'>
+              {/* <Form.Item className='btn-container'>
                 <Button htmlType='submit'>Sign Up</Button>
-              </Form.Item> 
+              </Form.Item>  */}
+              <Button className='btn-container' htmlType='submit'>
+                {/* <img src={require('./google-logo.png')} alt="Google Logo" className="logo" /> */}
+                <img src="https://img.icons8.com/color/48/null/gmail-new.png" alt="" width='20px' />
+                Sign Up
+              </Button>
             </Form>
             <p>Already have an account?
               <Link to={"/login"}>Login</Link>
             </p>
           </div>
-          <div>
+          <div className='login-option'>
             <Button onClick={handleLoginGoogle}>Sign in with Gmail</Button>
           </div>
         </Col>

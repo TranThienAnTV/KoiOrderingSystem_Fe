@@ -23,11 +23,35 @@
 }
 
 .left-side {
+
+  .theme-container {
+    background-color: orange;
+    background: linear-gradient(to right, #c0b274, #af5c18);
+    border-radius: 0 250px 200px 0;
+    color: #fff;
+    height: 100%;
+  }
+
+  .theme-panel {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: large;
+    margin-left: 120px;
+  }
+}
+
+.right-side {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 20px;
 
   .form-register {
@@ -35,15 +59,38 @@
   }
 
   .btn-container {
+    background-color: #F5C273;
+    color: #eee;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 5px;
   }
 
   h1 {
     margin-bottom: 50px;
     font-family: "Inter", sans-serif;
-
+    text-align: left;
   }
+
+  .login-option {
+    button {
+      background-color: #fff;
+      border: 1px solid #B2B2B2;
+      font-size: 15px;
+      border-radius: 8px;
+      padding: 0px 50px;
+      margin-top: 50px;
+    }
+  }
+
 }
