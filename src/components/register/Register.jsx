@@ -4,6 +4,7 @@ import { Button, Col, Form, Input, Row } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { provider } from '../../config/firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import api from '../../config/axios';
 function Register() {
 
   const navigate = useNavigate();
@@ -32,8 +33,14 @@ function Register() {
         // ...
       });
   }
-  const handleFinish = (values) => {
-    console.log(values)
+  const handleFinish = async (values) => {
+    try {
+      const reponse = await api.post("/register", values);
+      console.log(reponse.data);
+    }
+    catch (e) {
+      console.log(e);
+    }
   }
 
 
@@ -52,30 +59,78 @@ function Register() {
           <div className="container" >
             <h1>Create Account</h1>
             <Form onFinish={handleFinish} layout='vertical' className='form-register'>
-              <Form.Item label="Full name" name="fullname">
-                <Input />
+              {/* Fullname */}
+              <Form.Item name="fullName">
+                <Input placeholder=" " />
+                <label className="ant-form-item-label">Full name</label>
               </Form.Item>
-              <Form.Item label="Email" name="email">
-                <Input />
+              {/* Username */}
+              <Form.Item name="username">
+                <Input placeholder=" " />
+                <label className="ant-form-item-label">Username</label>
               </Form.Item>
-              <Form.Item label="Phone number" name="phoneNumber" rules={[
+              {/* Email */}
+              <Form.Item name="email" rules={[
+                {
+                  required: true,
+                  message: "Email cannot be blank",
+                },
+                {
+                  pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                  message: "Wrong email format",
+                }
+              ]}>
+                <Input placeholder=" " />
+                <label className="ant-form-item-label">Email</label>
+              </Form.Item>
+              {/* Phone number */}
+              <Form.Item name="phone" rules={[
                 {
                   required: "true",
-                  message: "m quen nhap kia",
+                  message: "Phone number cannot be blank",
                 },
                 {
                   pattern: '(84|0[3|5|7|8|9])+([0-9]{8})\\b',
-                  message: "m nhap sai kia nhap lai di",
+                  message: "Illegal phone number",
                 }
               ]}>
-                <Input />
+                <Input placeholder=" " />
+                <label className="ant-form-item-label">Phone number</label>
               </Form.Item>
-              <Form.Item label="Password" name="password">
-                <Input.Password />
+              {/* Address */}
+              <Form.Item name="address">
+                <Input placeholder=" " />
+                <label className="ant-form-item-label">Address</label>
               </Form.Item>
-              {/* <Form.Item className='btn-container'>
-                <Button htmlType='submit'>Sign Up</Button>
-              </Form.Item>  */}
+              {/* Password */}
+              <Form.Item name="password" rules={[
+                {
+                  required: "true",
+                  message: "Password cannot be blank",
+                }
+              ]}>
+                <Input.Password placeholder=" " />
+                <label className="ant-form-item-label">Password</label>
+              </Form.Item>
+              <Form.Item name="retype_password" rules={[
+                {
+                  required: "true",
+                  message: "Please confirm your password",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error('The two passwords do not match!')
+                    );
+                  },
+                }),
+              ]}>
+                <Input.Password placeholder=" " />
+                <label className="ant-form-item-label">Enter password again</label>
+              </Form.Item>
               <Button className='btn-container' htmlType='submit'>
                 Sign Up
               </Button>
