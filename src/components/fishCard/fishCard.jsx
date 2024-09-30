@@ -2,11 +2,10 @@ import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
-const tourCard = ({ isFirst }) => (
+const fishCard = () => (
   <Card
     style={{
-      width: isFirst ? 400 : 300, // Make the first card larger
-      margin: '0 auto',
+      width: 300,
     }}
     cover={
       <img
@@ -22,4 +21,4 @@ const tourCard = ({ isFirst }) => (
     />
   </Card>
 );
-export default tourCard;
+export default fishCard;

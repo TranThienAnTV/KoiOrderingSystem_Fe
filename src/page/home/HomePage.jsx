@@ -6,6 +6,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import Banner from '../../components/Banner/Banner';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TourDisplay from '../../components/tourDisplay/tourDisplay';
+import FarmDisplay from '../../components/farmDisplay/farmDisplay';
+import FishDisplay from '../../components/fishDisplay/fishDisplay';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
@@ -18,6 +20,8 @@ const HomePage = () => {
         <Banner />
         <SearchBar />
         <TourDisplay />
+        <FishDisplay />
+        <FarmDisplay />
       </Content>
     </Layout>
   );
