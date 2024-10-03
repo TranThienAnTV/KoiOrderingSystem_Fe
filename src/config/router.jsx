@@ -4,8 +4,7 @@ import LoginPage from "../page/login/LoginPage";
 import RegisterPage from "../page/register/RegisterPage";
 import HomePage from "../page/home/HomePage";
 import ErrorPage from "../page/error/ErrorPage";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+import Layout from "../components/layout/Layout";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -46,11 +45,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
+      <Layout />
     ),
     children: [
       {
@@ -60,11 +55,11 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path:"/register",
-    element:<RegisterPage/>,
+    path: "/register",
+    element: <RegisterPage />,
   },
   {
-    path:"/login",
-    element: <LoginPage/>,
+    path: "/login",
+    element: <LoginPage />,
   }
 ]);

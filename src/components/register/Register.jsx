@@ -4,6 +4,7 @@ import { Button, Col, Form, Input, Row } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { provider } from '../../config/firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import api from '../../config/axios';
 function Register() {
 
   const navigate = useNavigate();
@@ -32,8 +33,14 @@ function Register() {
         // ...
       });
   }
-  const handleFinish = (values) => {
-    console.log(values)
+  const handleFinish = async (values) => {
+    try {
+      const reponse = await api.post("/register", values);
+      console.log(reponse.data);
+    }
+    catch (e) {
+      console.log(e);
+    }
   }
 
 
@@ -52,30 +59,71 @@ function Register() {
           <div className="container" >
             <h1>Create Account</h1>
             <Form onFinish={handleFinish} layout='vertical' className='form-register'>
-              <Form.Item label="Full name" name="fullname">
-                <Input />
+              {/* Fullname */}
+              <Form.Item label="Full name" name="fullName">
+                <Input placeholder=" " />
               </Form.Item>
-              <Form.Item label="Email" name="email">
-                <Input />
+              {/* Username */}
+              <Form.Item label="Username" name="username">
+                <Input placeholder=" " />
               </Form.Item>
-              <Form.Item label="Phone number" name="phoneNumber" rules={[
+              {/* Email */}
+              <Form.Item label="Email" name="email" rules={[
+                {
+                  required: true,
+                  message: "Email cannot be blank",
+                },
+                {
+                  pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                  message: "Wrong email format",
+                }
+              ]}>
+                <Input placeholder=" " />
+              </Form.Item>
+              {/* Phone number */}
+              <Form.Item label="Phone number" name="phone" rules={[
                 {
                   required: "true",
-                  message: "m quen nhap kia",
+                  message: "Phone number cannot be blank",
                 },
                 {
                   pattern: '(84|0[3|5|7|8|9])+([0-9]{8})\\b',
-                  message: "m nhap sai kia nhap lai di",
+                  message: "Illegal phone number",
                 }
               ]}>
-                <Input />
+                <Input placeholder=" " />
               </Form.Item>
-              <Form.Item label="Password" name="password">
-                <Input.Password />
+              {/* Address */}
+              <Form.Item label="Address" name="address">
+                <Input placeholder=" " />
               </Form.Item>
-              {/* <Form.Item className='btn-container'>
-                <Button htmlType='submit'>Sign Up</Button>
-              </Form.Item>  */}
+              {/* Password */}
+              <Form.Item label="Password" name="password" rules={[
+                {
+                  required: "true",
+                  message: "Password cannot be blank",
+                }
+              ]}>
+                <Input.Password placeholder=" " />
+              </Form.Item>
+              <Form.Item label="Confirm password" name="retype_password" rules={[
+                {
+                  required: "true",
+                  message: "Please confirm your password",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error('The two passwords do not match!')
+                    );
+                  },
+                }),
+              ]}>
+                <Input.Password placeholder=" " />
+              </Form.Item>
               <Button className='btn-container' htmlType='submit'>
                 Sign Up
               </Button>
