@@ -60,17 +60,15 @@ function Register() {
             <h1>Create Account</h1>
             <Form onFinish={handleFinish} layout='vertical' className='form-register'>
               {/* Fullname */}
-              <Form.Item name="fullName">
+              <Form.Item label="Full name" name="fullName">
                 <Input placeholder=" " />
-                <label className="ant-form-item-label">Full name</label>
               </Form.Item>
               {/* Username */}
-              <Form.Item name="username">
+              <Form.Item label="Username" name="username">
                 <Input placeholder=" " />
-                <label className="ant-form-item-label">Username</label>
               </Form.Item>
               {/* Email */}
-              <Form.Item name="email" rules={[
+              <Form.Item label="Email" name="email" rules={[
                 {
                   required: true,
                   message: "Email cannot be blank",
@@ -81,10 +79,9 @@ function Register() {
                 }
               ]}>
                 <Input placeholder=" " />
-                <label className="ant-form-item-label">Email</label>
               </Form.Item>
               {/* Phone number */}
-              <Form.Item name="phone" rules={[
+              <Form.Item label="Phone number" name="phone" rules={[
                 {
                   required: "true",
                   message: "Phone number cannot be blank",
@@ -95,24 +92,21 @@ function Register() {
                 }
               ]}>
                 <Input placeholder=" " />
-                <label className="ant-form-item-label">Phone number</label>
               </Form.Item>
               {/* Address */}
-              <Form.Item name="address">
+              <Form.Item label="Address" name="address">
                 <Input placeholder=" " />
-                <label className="ant-form-item-label">Address</label>
               </Form.Item>
               {/* Password */}
-              <Form.Item name="password" rules={[
+              <Form.Item label="Password" name="password" rules={[
                 {
                   required: "true",
                   message: "Password cannot be blank",
                 }
               ]}>
                 <Input.Password placeholder=" " />
-                <label className="ant-form-item-label">Password</label>
               </Form.Item>
-              <Form.Item name="retype_password" rules={[
+              <Form.Item label="Confirm password" name="retype_password" rules={[
                 {
                   required: "true",
                   message: "Please confirm your password",
@@ -129,7 +123,6 @@ function Register() {
                 }),
               ]}>
                 <Input.Password placeholder=" " />
-                <label className="ant-form-item-label">Enter password again</label>
               </Form.Item>
               <Button className='btn-container' htmlType='submit'>
                 Sign Up
