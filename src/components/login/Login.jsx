@@ -5,9 +5,22 @@ import { Button, Checkbox, Form, Input, Flex, Row, Col } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { provider } from "../../config/firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import api from "../../config/axios";
 
 function Login() {
   const navigate = useNavigate();
+
+  const onFinish = async (values) => {
+    try {
+      const reponse = await api.post("/login", values);
+      console.log(reponse.data.data);
+      localStorage.setItem("tokem",reponse.data.data.token);
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
   function handleLoginGoogle() {
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -33,10 +46,7 @@ function Login() {
         // ...
       });
   }
-
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
+ 
 
   return (
     <Row className="login">
@@ -54,7 +64,7 @@ function Login() {
             onFinish={onFinish}
           >
             <Form.Item
-              name="email"
+              name="username"
               className="input-field"
               rules={[
                 {
