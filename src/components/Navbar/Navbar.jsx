@@ -4,13 +4,12 @@ import { LoginOutlined, UserAddOutlined } from '@ant-design/icons';
 import './Navbar.scss'
 import { useNavigate } from 'react-router-dom';
 
-
 const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navbar">
+      <img src="src\image\koi logo - remove bg.png" alt="Koi Fish Logo" width={'70px'} />
       <Menu mode="horizontal" theme="light" className='menu-items'>
-        <img src="src\image\koi logo.jpg" alt="Koi Fish Logo" width={'50px'} />
         <Menu.Item key="home">Home</Menu.Item>
         <Menu.Item key="koiFarm">Koi Farm</Menu.Item>
         <Menu.Item key="tour">Tour</Menu.Item>
