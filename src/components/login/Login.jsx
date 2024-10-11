@@ -13,11 +13,12 @@ function Login() {
   const onFinish = async (values) => {
     try {
       const reponse = await api.post("/login", values);
-      console.log(reponse.data.data);
-      localStorage.setItem("tokem",reponse.data.data.token);
+      localStorage.setItem("token",reponse.data.data.token);
+      navigate("/");
     }
     catch (e) {
       console.log(e);
+      alert("Invalid username or password!")
     }
   }
 
@@ -73,7 +74,7 @@ function Login() {
                 },
               ]}
             >
-              <Input prefix={<UserOutlined />} placeholder="Email" />
+              <Input prefix={<UserOutlined />} placeholder="Username" />
             </Form.Item>
             <Form.Item
               className="input-field"

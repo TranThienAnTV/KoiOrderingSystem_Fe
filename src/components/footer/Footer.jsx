@@ -10,37 +10,39 @@ import './Footer.scss';
 function Footer() {
   return (
     <>
-      <div className='container'>
-        <div className='row'>
-          <div className='footer-col'>
-            <div>
-              <img src='src\image\koi logo - remove bg.png' alt='' width={'200px'} />
-              <h3>Koi tour service</h3>
+      <div className='footer'>
+        <div className='ft-container'>
+          <div className='row'>
+            <div className='footer-col'>
+              <div>
+                <img src='src\image\koi logo - remove bg.png' alt='' width={'200px'} />
+                <h3>Koi tour service</h3>
+              </div>
             </div>
-          </div>
-          <div className='footer-col'>
-            <h4>Contact us</h4>
-            <ul>
-              <li>
-                <FontAwesomeIcon icon={faPhone} />
-                Hotline: 081 5242 499
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faEnvelope} />
-                Email: datdse182133@fpt.edu.vn
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faLocationDot} />
-                Address: ???
-              </li>
-            </ul>
-          </div>
-          <div className='footer-col'>
-            <h4>Follow us</h4>
-            <div className='social-links'>
-              <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
-              <a href="#"><FontAwesomeIcon icon={faTiktok} /></a>
-              <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
+            <div className='footer-col'>
+              <h4>Contact us</h4>
+              <ul>
+                <li>
+                  <FontAwesomeIcon icon={faPhone} />
+                  Hotline: 081 5242 499
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faEnvelope} />
+                  Email: datdse182133@fpt.edu.vn
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faLocationDot} />
+                  Address: ???
+                </li>
+              </ul>
+            </div>
+            <div className='footer-col'>
+              <h4>Follow us</h4>
+              <div className='social-links'>
+                <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+                <a href="#"><FontAwesomeIcon icon={faTiktok} /></a>
+                <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
+              </div>
             </div>
           </div>
         </div>

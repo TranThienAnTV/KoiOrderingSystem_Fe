@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'antd';
-import './tourDisplay.scss';
 import TourCard from '../tourCard/tourCard';
+import './TourDisplay.scss';
 
 const TourDisplay = () => {
   return (
@@ -16,8 +16,8 @@ const TourDisplay = () => {
           infinite={false} // Không cuộn lại từ đầu
           slidesToShow={3} // Số lượng mục hiển thị trên một màn hình
           slidesToScroll={1} // Số lượng mục cuộn mỗi lần
-          dotPosition="bottom" // Vị trí của dot indicator
           draggable={true} // Kéo để cuộn
+          dots={false}
         >
           <div className="carousel-item">
             <TourCard isFirst={true} />
