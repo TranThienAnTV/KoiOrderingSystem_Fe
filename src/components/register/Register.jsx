@@ -37,6 +37,7 @@ function Register() {
     try {
       const reponse = await api.post("/register", values);
       console.log(reponse.data);
+      navigate("/login");
     }
     catch (e) {
       console.log(e);
@@ -56,7 +57,7 @@ function Register() {
           </div>
         </Col>
         <Col className='right-side' span={14}>
-          <div className="container" >
+          <div className="regis-container" >
             <h1>Create Account</h1>
             <Form onFinish={handleFinish} layout='vertical' className='form-register'>
               {/* Fullname */}

@@ -8,38 +8,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.ant-form-item {
-  margin-bottom: 24px;
-  position: relative;
-
-  .ant-form-item-label {
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    z-index: 10;
-    font-size: 16px;
-    padding: 0 4px;
-    background-color: white;
-  }
-
-  .ant-form-item-label label::after {
-    content: none; /* This removes the space or content added after the label */
-  }
-
-  .ant-input, .ant-input-password {
-    padding: 10px 6px; /* Tạo khoảng trống cho label */
-    font-size: 14px;
-    line-height: 1.5715;
-    outline: none;
-    &:focus,
-    &:active {
-      border-color: #40a9ff;
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-    }
-
-  }
-}
-
 .left-side {
 
   .theme-container {
@@ -77,6 +45,50 @@
   align-items: center;
   text-align: center;
   gap: 20px;
+
+  .ant-form-item {
+    margin-bottom: 24px;
+    position: relative;
+  
+    .ant-form-item-label {
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      z-index: 10;
+      font-size: 16px;
+      padding: 0 4px;
+      background-color: white;
+    }
+  
+    .ant-form-item-label label::after {
+      content: none; /* This removes the space or content added after the label */
+    }
+  
+    .ant-input {
+      padding: 10px 6px; /* Tạo khoảng trống cho label */
+      font-size: 14px;
+      line-height: 1.5715;
+      outline: none;
+      &:focus,
+      &:active {
+        border-color: #40a9ff;
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      } 
+    }
+
+    .ant-input-password {
+      padding: 0; /* Tạo khoảng trống cho label */
+      font-size: 14px;
+      line-height: 1.5715;
+      outline: none;
+      &:focus,
+      &:active {
+        border-color: #40a9ff;
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      } 
+    }
+
+  }
 
   .form-register {
     width: 500px;

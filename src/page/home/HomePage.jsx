@@ -6,9 +6,10 @@ import Navbar from '../../components/Navbar/Navbar';
 import Banner from '../../components/Banner/Banner';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import TourDisplay from '../../components/tourDisplay/TourDisplay';
-import FarmDisplay from '../../components/farmDisplay/farmDisplay';
+import FarmDisplay from '../../components/farmDisplay/FarmDisplay';
 import FishDisplay from '../../components/fishDisplay/fishDisplay';
 import { Layout } from 'antd';
+
 
 const { Content } = Layout;
 
