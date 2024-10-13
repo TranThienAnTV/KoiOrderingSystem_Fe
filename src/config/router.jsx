@@ -5,6 +5,7 @@ import RegisterPage from "../page/register/RegisterPage";
 import HomePage from "../page/home/HomePage";
 import ErrorPage from "../page/error/ErrorPage";
 import Layout from "../components/layout/Layout";
+import ProfilePage from "../page/profile/ProfilePage";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      }
     ]
   },
   {

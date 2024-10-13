@@ -10,7 +10,10 @@ function Layout() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setUser({ username: "haha" });
+      const account = JSON.parse(localStorage.getItem("user"));
+      if (account) {
+        setUser(account);
+      }
     }
   }, [])
 
