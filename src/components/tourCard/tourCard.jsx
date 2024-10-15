@@ -7,6 +7,7 @@ const tourCard = ({ isFirst }) => (
     style={{
       width: isFirst ? 400 : 300, // Make the first card larger
       margin: '0 auto',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Thêm viền bóng mờ
     }}
     cover={
       <img

@@ -5,6 +5,7 @@
     border-radius: 12px; /* Bo góc */
     display: flex;
     padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm viền bóng mờ */
   }
   
   .farm-card-content {
@@ -60,17 +61,33 @@
   }
   
   .nut-xanh {
-    background-color: #4784ff;
-    color: #ffffff;
+    border-color: #4784ff; /* Màu viền xanh */
+    color:#000000; /* Màu chữ xanh */
+    
+    &:hover {
+      background-color: #4784ff;
+      color: #ffffff;
+    }
   }
   
+  /* Nút với viền màu đỏ */
   .nut-do {
-    background-color: #ff4747;
-    color: #ffffff;
+    border-color: #ff4747; /* Màu viền đỏ */
+    color:#000000; /* Màu chữ đỏ */
+    
+    &:hover {
+      background-color: #ff4747;
+      color: #ffffff;
+    }
   }
   
+  /* Nút với viền màu vàng */
   .nut-vang {
-    background-color: #ffe647;
-    color: #ffffff;
+    border-color: #ffe647; /* Màu viền vàng */
+    color: #000000; /* Màu chữ vàng */
+    
+    &:hover {
+      background-color: #ffe647;
+      color: #ffffff;
+    }
   }
-  
