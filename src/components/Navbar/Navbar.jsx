@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navbar">
+
       <img src="src\image\koi logo - remove bg.png" alt="Koi Fish Logo" width={'70px'} />
       <Menu mode="horizontal" theme="light" className='menu-items'>
         <Menu.Item key="home">Home</Menu.Item>
@@ -21,6 +22,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default Navbar;

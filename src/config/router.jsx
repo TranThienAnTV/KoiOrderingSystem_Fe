@@ -1,11 +1,16 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 
+import ManagerPage from "../page/manager/ManagerPage";
 import LoginPage from "../page/login/LoginPage";
 import RegisterPage from "../page/register/RegisterPage";
 import HomePage from "../page/home/HomePage";
 import ErrorPage from "../page/error/ErrorPage";
-import Layout from "../components/layout/Layout";
-
+import Header from "../components/header/Header";
+import Footer from '../components/footer/Footer';
+import ManageFarm from "../page/manager/manage-farm/managefarm";
+import Layout from "../components/layout/layout"
+import ManageKoi from "../page/manager/manage-koi/managekoi";
+// import ManageTour from "../page/manager/manage-tour/managetour"
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
 //   if (!user) {
@@ -29,7 +34,7 @@ import Layout from "../components/layout/Layout";
 //   const user = useSelector(selectUser);
 //   console.log(user);
 //   if (user?.role !== "ADMIN") {
-//     if (user?.role !== "MOD") {
+//     if (u  ser?.role !== "MOD") {
 //       alertFail("You do not have permissions to access");
 //       return <Navigate to="/" replace />;
 //     }
@@ -59,7 +64,34 @@ export const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: "/login",
-    element: <LoginPage />,
+    path:"/login",
+    element: <LoginPage/>,
+  },
+  {
+    path:"/login",
+    element: <LoginPage/>,
+  },
+  {
+    path: "/manager",
+    element: <ManagerPage />, // ManagerPage sẽ render các trang con
+    children: [
+      {
+        path: "ManageFarm", // URL /manager/page1
+        element: <ManageFarm />, // Trang Page1
+      },
+      {
+        path:"ManageKoi",
+        element: <ManageKoi />
+      },
+      // {
+      //   path:"ManageTour",
+      //   element: <ManageTour />
+      // },
+      {
+        path: "", // Route con mặc định
+        element: <Navigate to="/manager/ManageFarm" replace />, // Chuyển hướng về ManageKoi
+      },
+    ]
+
   }
-]);
+]); 
