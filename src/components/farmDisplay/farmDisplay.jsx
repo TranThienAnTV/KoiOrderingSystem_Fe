@@ -1,9 +1,75 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
-import './farmDisplay.scss';
-import FarmCard from '../farmCard/farmCard'; // Đảm bảo bạn đã tạo FarmCard component
+import './FarmDisplay.scss';
+import FarmCard from '../farmCard/FarmCard'; // Đảm bảo bạn đã tạo FarmCard component
+import api from '../../config/axios';
 
 const farmDisplay = () => {
+
+
+  /* const farms = [
+    {
+      "id": 0,
+      "farmName": "string",
+      "location": "string",
+      description: "string",
+      "startTime": "2024-10-09T09:40:59.345Z",
+      "endTime": "2024-10-09T09:40:59.346Z",
+      "farmTourEntities": [
+        {
+          "id": 0,
+          "description": "string",
+          "farm": "string",
+          "tour": {
+            "id": 0,
+            "tourName": "string",
+            "tourStart": "2024-10-09T09:40:59.346Z",
+            "tourEnd": "2024-10-09T09:40:59.346Z",
+            "decription": "string",
+            "tourPrice": 0,
+            "farmTourEntities": [
+              "string"
+            ]
+          }
+        }
+      ],
+      "farmKoisEntities": [
+        {
+          "id": 0,
+          "koiFish": {
+            "id": 0,
+            "koiName": "string",
+            "detail": "string",
+            "price": 0,
+            "farmKoisEntities": [
+              "string"
+            ]
+          },
+          "farmKoi": "string",
+          "quantity": 0
+        }
+      ]
+    }
+  ]; */
+
+  const [farms, setFarms] = useState([]);
+
+  const fetchFarms = async () => {
+    try {
+      const response = await api.get("/admin/farm/all");
+      setFarms(response.data);
+    } catch (error) {
+      console.log(error.toString());
+    }
+  }
+
+  useEffect(() => {
+    fetchFarms();
+  }, [])
+
+
+
   return (
     <div className="carousel-container">
       {/* Label cho phần hiển thị farm */}
@@ -14,7 +80,10 @@ const farmDisplay = () => {
 
       {/* Carousel hiển thị các farm card */}
       <div className="carousel-bar">
-        <Carousel 
+
+=======
+        <Carousel
+
           arrows={true} // Hiển thị nút mũi tên điều hướng
           infinite={false} // Không cuộn lại từ đầu
           slidesToShow={1} // Chỉ hiển thị 1 FarmCard trên một màn hình
@@ -22,21 +91,14 @@ const farmDisplay = () => {
           dotPosition="bottom" // Vị trí của dot indicator
           draggable={true} // Kéo để cuộn
         >
-          <div className="carousel-item">
-            <FarmCard /> {/* Thêm các FarmCard item */}
-          </div>
-          <div className="carousel-item">
-            <FarmCard />
-          </div>
-          <div className="carousel-item">
-            <FarmCard />
-          </div>
-          <div className="carousel-item">
-            <FarmCard />
-          </div>
-          <div className="carousel-item">
-            <FarmCard />
-          </div>
+
+          
+          {farms.map((farm) => (
+            <div key={farm.id} className="carousel-item">
+              <FarmCard farm={farm} /> {/* Thêm các FarmCard item */}
+            </div>
+          ))}
+
         </Carousel>
       </div>
     </div>

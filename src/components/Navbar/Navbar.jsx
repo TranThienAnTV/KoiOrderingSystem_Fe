@@ -8,10 +8,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navbar">
-      <div className="logo">
-        <img src="logo.png" alt="Koi Fish Logo" />
-      </div>
-      <Menu mode="horizontal" theme="light">
+      <img src="src\image\koi logo - remove bg.png" alt="Koi Fish Logo" width={'70px'} />
+      <Menu mode="horizontal" theme="light" className='menu-items'>
         <Menu.Item key="home">Home</Menu.Item>
         <Menu.Item key="koiFarm">Koi Farm</Menu.Item>
         <Menu.Item key="tour">Tour</Menu.Item>
