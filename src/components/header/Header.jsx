@@ -17,7 +17,7 @@ function Header({ user, setUser }) {
 
   const menu = (
     <Menu>
-      <Menu.Item key="profile" icon={<UserOutlined />}>
+      <Menu.Item onClick={() => navigate("/profile", {state: { user }})} key="profile" icon={<UserOutlined />}>
         Profile
       </Menu.Item>
       <Menu.Item key="notifications" icon={<BellOutlined />}>
@@ -34,9 +34,9 @@ function Header({ user, setUser }) {
     <div className="navbar">
       <img src="src\\image\\koi logo - remove bg.png" alt="Koi Fish Logo" width={'70px'} />
       <Menu mode="horizontal" theme="light" className="menu-items">
-        <Menu.Item key="home">Home</Menu.Item>
-        <Menu.Item key="koiFarm">Koi Farm</Menu.Item>
-        <Menu.Item key="tour">Tour</Menu.Item>
+        <Menu.Item onClick={() => navigate("/")} key="home">Home</Menu.Item>
+        <Menu.Item onClick={() => navigate("/koifarm")} key="koiFarm">Koi Farm</Menu.Item>
+        <Menu.Item onClick={() => navigate("/tour")} key="tour">Tour</Menu.Item>
         <Menu.Item key="koiFish">Koi Fish</Menu.Item>
       </Menu>
       <div className="auth-buttons">
@@ -49,7 +49,7 @@ function Header({ user, setUser }) {
                 icon={<UserOutlined />}
               />
               <div style={{ marginLeft: '10px', display: 'flex', flexDirection: 'column' }}>
-                <Text strong>{user?.username}</Text>
+                <Text strong>{user.data?.username}</Text>
               </div>
             </div>
           </Dropdown>

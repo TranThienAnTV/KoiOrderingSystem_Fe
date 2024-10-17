@@ -1,0 +1,62 @@
+.koi-farm-page {
+    .header-banner {
+      background-color: #ffe4b2;
+      padding: 50px 20px;
+      text-align: center;
+      
+      h1 {
+        font-size: 2.5em;
+        margin: 0;
+      }
+      
+      p {
+        font-size: 1.2em;
+        color: #666;
+      }
+    }
+  
+    .farm-highlights, .gallery, .testimonials, .contact {
+      padding: 40px 20px;
+      text-align: center;
+  
+      h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+  
+      .ant-card {
+        margin: 0 auto;
+        .ant-card-meta-title {
+          font-weight: bold;
+        }
+        .ant-card-meta-description {
+          color: #666;
+        }
+      }
+    }
+  
+    .gallery .gallery-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+  
+    .contact {
+      background-color: #fafafa;
+      
+      p {
+        font-size: 1.1em;
+      }
+      
+      .ant-btn-primary {
+        background-color: #ff7f50;
+        border-color: #ff7f50;
+        
+        &:hover {
+          background-color: #ff5722;
+          border-color: #ff5722;
+        }
+      }
+    }
+  }
+  

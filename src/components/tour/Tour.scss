@@ -1,0 +1,111 @@
+// Tour.scss
+
+.tour-page {
+    padding: 20px;
+  
+    // Banner Section
+    .tour-banner {
+      background: url('https://link-to-banner-image.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 60px 20px;
+      text-align: center;
+      color: black;
+      border-radius: 8px;
+      margin-bottom: 30px;
+  
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+  
+      .ant-btn-primary {
+        background-color: #ff7f50;
+        border-color: #ff7f50;
+        &:hover {
+          background-color: #ff4500;
+          border-color: #ff4500;
+        }
+        a {
+          color: #fff;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+    }
+  
+    // Tour List Section
+    .tour-list {
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+      }
+  
+      .ant-row {
+        display: flex;
+        justify-content: center;
+      }
+  
+      .ant-col {
+        margin-bottom: 20px;
+      }
+  
+      .ant-card {
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: translateY(-10px);
+        }
+  
+        .ant-card-cover img {
+          height: 200px;
+          object-fit: cover;
+        }
+  
+        .ant-card-body {
+          padding: 16px;
+          text-align: center;
+  
+          .ant-card-meta-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+          }
+  
+          .ant-card-meta-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+          }
+        }
+  
+        .ant-card-actions {
+          display: flex;
+          justify-content: center;
+  
+          .ant-btn-primary {
+            background-color: #ff7f50;
+            border-color: #ff7f50;
+            &:hover {
+              background-color: #ff4500;
+              border-color: #ff4500;
+            }
+  
+            a {
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  

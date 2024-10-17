@@ -12,8 +12,10 @@ function Login() {
 
   const onFinish = async (values) => {
     try {
-      const reponse = await api.post("/login", values);
-      localStorage.setItem("token",reponse.data.data.token);
+      const response = await api.post("/login", values);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(response.data));
       navigate("/");
     }
     catch (e) {

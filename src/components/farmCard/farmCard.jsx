@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Button } from "antd";
-
 import "./FarmCard.scss"; // File CSS chứa các class đã định nghĩa
 
 
@@ -30,4 +29,3 @@ function farmCard({ farm }) {
 }
 
 export default farmCard
->>>>>>> e7a80170efe9aac096b687dfc9e28c5b8e28c1e5

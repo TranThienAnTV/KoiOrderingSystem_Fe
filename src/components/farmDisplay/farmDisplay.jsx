@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import './FarmDisplay.scss';
@@ -69,7 +68,6 @@ const farmDisplay = () => {
   }, [])
 
 
-
   return (
     <div className="carousel-container">
       {/* Label cho phần hiển thị farm */}
@@ -80,10 +78,7 @@ const farmDisplay = () => {
 
       {/* Carousel hiển thị các farm card */}
       <div className="carousel-bar">
-
-=======
         <Carousel
-
           arrows={true} // Hiển thị nút mũi tên điều hướng
           infinite={false} // Không cuộn lại từ đầu
           slidesToShow={1} // Chỉ hiển thị 1 FarmCard trên một màn hình
@@ -91,7 +86,6 @@ const farmDisplay = () => {
           dotPosition="bottom" // Vị trí của dot indicator
           draggable={true} // Kéo để cuộn
         >
-
           
           {farms.map((farm) => (
             <div key={farm.id} className="carousel-item">

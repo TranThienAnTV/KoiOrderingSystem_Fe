@@ -4,7 +4,11 @@ import LoginPage from "../page/login/LoginPage";
 import RegisterPage from "../page/register/RegisterPage";
 import HomePage from "../page/home/HomePage";
 import ErrorPage from "../page/error/ErrorPage";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/layout/layout";
+import ProfilePage from "../page/profile/ProfilePage";
+import TourPage from "../page/tour/TourPage";
+import TourDetailPage from "../page/tourdetail/TourDetailPage";
+import KoiFarmPage from "../page/koifarm/KoiFarmPage";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -44,15 +48,29 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: (
-      <Layout />
-    ),
+    element: <Layout />,
     children: [
       {
         path: "/",
         element: <HomePage />,
       },
-    ]
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/tour",
+        element: <TourPage />,
+      },
+      {
+        path: "/tourdetail",
+        element: <TourDetailPage />,
+      },
+      {
+        path: "/koifarm",
+        element: <KoiFarmPage />,
+      },
+    ],
   },
   {
     path: "/register",
@@ -61,5 +79,5 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
-  }
+  },
 ]);

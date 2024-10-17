@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
-import './fishDisplay.scss';
-import FishCard from '../fishCard/fishCard';
+import './KoiFish.scss';
+import FishCard1 from '../fishcard1/FishCard1';
 import api from '../../config/axios';
 
-const FishDisplay = () => {
+const KoiFish = () => {
 
   const [koiFishs, setKoiFishs] = useState([]);
 
@@ -37,19 +37,19 @@ const FishDisplay = () => {
           draggable={true} // Kéo để cuộn
         >
           <div className="carousel-item">
-            <FishCard />
+            <FishCard1 />
           </div>
           <div className="carousel-item">
-            <FishCard />
+            <FishCard1 />
           </div>
           <div className="carousel-item">
-            <FishCard />
+            <FishCard1 />
           </div>
           <div className="carousel-item">
-            <FishCard />
+            <FishCard1 />
           </div>
           <div className="carousel-item">
-            <FishCard />
+            <FishCard1 />
           </div>
         </Carousel>
       </div>
@@ -57,4 +57,4 @@ const FishDisplay = () => {
   );
 };
 
-export default FishDisplay;
+export default KoiFish;
