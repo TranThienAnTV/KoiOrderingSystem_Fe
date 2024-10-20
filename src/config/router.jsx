@@ -6,6 +6,7 @@ import HomePage from "../page/home/HomePage";
 import ErrorPage from "../page/error/ErrorPage";
 import Layout from "../components/layout/Layout";
 import ProfilePage from "../page/profile/ProfilePage";
+import TestSearch from "../components/SearchBar/TestSearch";
 
 // const ProtectedRouteAuth = ({ children }) => {
 //   const user = useSelector(selectUser);
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "/tour",
+        element: <TestSearch />,
       }
     ]
   },

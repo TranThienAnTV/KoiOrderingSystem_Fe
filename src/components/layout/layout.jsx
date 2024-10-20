@@ -11,6 +11,7 @@ function Layout() {
     const token = localStorage.getItem("token");
     if (token) {
       const account = JSON.parse(localStorage.getItem("user"));
+      console.log(account.data.role);
       if (account) {
         setUser(account);
       }

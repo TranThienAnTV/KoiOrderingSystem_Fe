@@ -1,0 +1,50 @@
+<Form layout='vertical' className='form-register'>
+    <Space className="search-container" direction="horizontal" size="large">
+    {/* Chon theo dia diem */}
+    <Input className="destination"
+      size="large"
+      placeholder="Choose your destination"
+      suffix={<EnvironmentOutlined />}
+      value={searchKey}
+      onChange={(e) => { setSearchKey(e.target.value) }}
+      onKeyUp={filterByName}
+    />
+
+    {/* Chon theo ngay */}
+    <Space className="Date_picker"
+      size="large">
+      <RangePicker format='DD-MM-YYYY' onChange={filterByDate} />
+    </Space>
+
+    {/* Chon theo gia tien */}
+    <Select className='Price'
+      placeholder="Choose Price"
+      suffixIcon={<DollarOutlined />}
+      options={[
+        {
+          value: 'jack',
+          label: 'Under 1.000.000 VND',
+        },
+        {
+          value: 'Lucy',
+          label: 'Under 2.000.000 VND',
+        },
+        {
+          value: 'Yiminghe',
+          label: 'Above 1 jack',
+        },
+      ]}
+    />
+
+    {/* Chon theo giong ca */}
+    <Input className="fish"
+      size="large"
+      placeholder="Koi type"
+      suffix={<EnvironmentOutlined />}
+    />
+
+    <Button onClick={() => navigate("/tour", { state: { searchTours } })} className="button_search" type="primary" size="large" icon={<SearchOutlined />}>
+      Search
+    </Button>
+  </Space>
+</Form>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import './fishDisplay.scss';
-import FishCard from '../fishCard/fishCard';
+import FishCard from '../fishCard/FishCard';
 import api from '../../config/axios';
 
 const FishDisplay = () => {
@@ -10,8 +10,8 @@ const FishDisplay = () => {
 
   const fetchKoiFishs = async () => {
     try {
-      const response = await api.get("/admin/koifish/all");
-      console.log(response.data);
+      const response = await api.get("/koifish");
+      setKoiFishs(response.data);
     } catch (error) {
       console.log(error.toString());
     }
@@ -19,6 +19,7 @@ const FishDisplay = () => {
 
   useEffect(() => {
     fetchKoiFishs();
+    console.log(koiFishs);
   }, [])
 
   return (
@@ -36,21 +37,13 @@ const FishDisplay = () => {
           dotPosition="bottom" // Vị trí của dot indicator
           draggable={true} // Kéo để cuộn
         >
-          <div className="carousel-item">
-            <FishCard />
-          </div>
-          <div className="carousel-item">
-            <FishCard />
-          </div>
-          <div className="carousel-item">
-            <FishCard />
-          </div>
-          <div className="carousel-item">
-            <FishCard />
-          </div>
-          <div className="carousel-item">
-            <FishCard />
-          </div>
+          {
+            koiFishs.map((fish) => (
+              <div key={fish.id} className="carousel-item">
+                <FishCard fish={fish} />
+              </div>
+            ))
+          }
         </Carousel>
       </div>
     </div>

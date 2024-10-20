@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import TourCard from '../tourCard/tourCard';
 import './TourDisplay.scss';
+import api from '../../config/axios';
 
-const TourDisplay = () => {
+function TourDisplay() {
+
+  const [tours, setTours] = useState([]);
+
+  const fetchTours = async () => {
+    try {
+      const response = await api.get("/tour/search");
+
+      setTours(response.data.content);
+    } catch (error) {
+      console.log(error.toString());
+    }
+  }
+
+
+  useEffect(() => {
+    fetchTours();
+    console.log(tours);
+  }, [])
+
+  
+  
+
   return (
-    <div className="carousel-container">
+    <div className="carousel-container" >
       <div className="tour-label">
         <div className="text-wrapper-title">Ghi gi do</div>
         <div className="text-wrapper-describe">mieu ta gi do</div>
@@ -19,25 +42,18 @@ const TourDisplay = () => {
           draggable={true} // Kéo để cuộn
           dots={false}
         >
-          <div className="carousel-item">
-            <TourCard isFirst={true} />
-          </div>
-          <div className="carousel-item">
-            <TourCard isFirst={false} />
-          </div>
-          <div className="carousel-item">
-            <TourCard isFirst={false} />
-          </div>
-          <div className="carousel-item">
-            <TourCard isFirst={false} />
-          </div>
-          <div className="carousel-item">
-            <TourCard isFirst={false} />
-          </div>
+          {
+            tours.map((tour) => (
+              <div key={tour.id} className="carousel-item">
+                <TourCard isFirst={true} tour={tour} />
+              </div>
+            ))
+          }
+
         </Carousel>
       </div>
-    </div>
+    </div >
   );
-};
+}
 
-export default TourDisplay;
+export default TourDisplay

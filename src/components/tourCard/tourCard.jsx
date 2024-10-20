@@ -2,7 +2,7 @@ import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
-const tourCard = ({ isFirst }) => (
+const tourCard = ({ isFirst, tour }) => (
   <Card
     style={{
       width: isFirst ? 400 : 300, // Make the first card larger
@@ -17,8 +17,14 @@ const tourCard = ({ isFirst }) => (
   >
     <Meta
       avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
-      title="Card title"
-      description="This is the description"
+      title={tour?.tourName}
+      description={
+        <>
+          <div>{tour?.decription}</div>
+          <div>{tour?.tourStart} - {tour?.tourEnd}</div>
+          <div>{tour?.priceAdult}</div>
+        </>
+      }
     />
   </Card>
 );
